@@ -1,0 +1,288 @@
+/* =======================================================
+   NeoHealth Theme – Salud-Net (oscuro teal + claros suaves)
+   Limpio y consistente • Parallax por capa • Botones sin cambio de color
+   Requisitos:
+   - /public/fonts/Lato-Regular.woff2, Lato-Bold.woff2
+   - Importar Bootstrap CSS ANTES de este archivo
+======================================================= */
+
+/* 1) Fuentes locales */
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lato";
+  src: url("/fonts/Lato-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+/* 2) Variables de tema (teal inspirado en #06475B) */
+:root{
+  /* Base oscuro (más amable que negro puro) */
+  --brand-bg: #0E3A46;       /* fondo general */
+  --brand-surface: #144C5C;  /* superficies (nav/cards) */
+  --brand-border: #1E5A69;   /* líneas sutiles */
+
+  /* Texto y acentos */
+  --brand-text: #EAF4F6;     /* texto en oscuro */
+  --brand-primary: #00BCCD;  /* acción en claro */
+  --brand-secondary: #8BD3F7;
+  --brand-accent: #11E3FF;
+
+  /* Claros para secciones “paper” */
+  --paper-top:    #D8EEF2;   /* tope del gradiente claro */
+  --paper-mid:    #E7F5F8;   /* mitad */
+  --paper-bottom: #F4FAFB;   /* base del gradiente */
+  --ink:          #0F2F39;   /* texto sobre claro */
+  --ink-soft:     #3D6A75;   /* subtítulos sobre claro */
+
+  /* Bootstrap tune principal */
+  --bs-body-bg: var(--brand-bg);
+  --bs-body-color: var(--brand-text);
+  --bs-primary: var(--brand-primary);
+  --bs-secondary: var(--brand-secondary);
+  --bs-link-color: var(--brand-accent);
+  --bs-link-hover-color: #7EE6FF;
+  --bs-border-color: var(--brand-border);
+  --bs-card-bg: var(--brand-surface);
+  --bs-card-border-color: var(--brand-border);
+  --bs-heading-color: var(--brand-text);
+
+  /* Inputs */
+  --bs-input-bg: #f9fdff;
+  --bs-input-border-color: var(--brand-border);
+  --bs-input-color: var(--brand-text);
+  --bs-input-placeholder-color: #C7DCE1;
+
+  /* Bordes y sombras */
+  --bs-btn-border-radius: .75rem;
+  --bs-border-radius: .75rem;
+  --bs-border-radius-lg: 1rem;
+  --bs-border-radius-sm: .5rem;
+  --shadow-soft: 0 10px 30px rgba(0,0,0,.28);
+  --shadow-focus: 0 0 0 .25rem rgba(0,188,205,.25);
+
+  /* Layout */
+  --container-max: 1200px;
+}
+
+/* 3) Base */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body, #root { height: 100%; }
+html { scroll-behavior: smooth; }
+
+body{
+  margin:0;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+  font-family: "Lato", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg, video, canvas { max-width: 100%; height: auto; }
+
+/* 4) Tipos y enlaces */
+h1, h2, h3, h4, h5, h6 { color: var(--bs-heading-color); line-height:1.2; letter-spacing:.2px; }
+a { color: var(--bs-link-color); text-decoration: none; }
+a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline; }
+
+/* 5) Layout / contenedores */
+.container, .container-fluid { padding-inline: clamp(1rem, 2vw, 2rem); }
+.container { max-width: var(--container-max); }
+
+/* 6) Navbar y Footer (mínimos; los afinamos al final) */
+.navbar{
+  background: rgba(20, 76, 92, 0.85);
+  backdrop-filter: saturate(120%) blur(8px);
+  border-bottom: 1px solid var(--brand-border);
+}
+.navbar .navbar-brand, .navbar .nav-link { color: var(--brand-text); }
+.navbar .nav-link:hover { color: var(--brand-accent); }
+
+.footer{
+  background: #0b1016;
+  border-top: 1px solid var(--brand-border);
+  color: #cdd6df;
+  padding-block: 2rem;
+}
+
+/* 7) Cards e inputs */
+.card{
+  background: var(--bs-card-bg);
+  border: 1px solid var(--bs-card-border-color);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+.card .card-subtitle{ color:#C7DCE1; }
+
+.form-control, .form-select, .form-check-input{
+  background: var(--bs-input-bg);
+  color: var(--bs-input-color);
+  border-color: var(--bs-input-border-color);
+}
+.form-control::placeholder{ color: var(--bs-input-placeholder-color); }
+.form-control:focus, .form-select:focus{
+  border-color: var(--brand-primary);
+  box-shadow: var(--shadow-focus);
+}
+
+/* 8) Secciones oscuras y hero */
+.section-dark{
+  padding-block: clamp(3rem, 6vw, 6rem);
+  background: linear-gradient(180deg, var(--brand-bg), var(--brand-surface));
+  border-top: 1px solid var(--brand-border);
+  color: var(--brand-text);
+}
+.hero{
+  background:
+    radial-gradient(1200px 700px at 75% -10%, rgba(17,227,255,.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(139,211,247,.07), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.18), transparent 25%),
+    var(--brand-bg);
+  color: var(--brand-text);
+}
+
+/* === Sección clara unificada (SERVICIOS, SHOWCASE, QUOTE, CONTACT) — prioridad alta === */
+body .section-services {
+  padding-block: clamp(3rem, 6vw, 6rem);
+  /* Gradiente claro (un poco más luminoso que antes) */
+  background: linear-gradient(180deg, #EAF7F9 0%, #F8FCFD 100%) !important;
+
+  /* Texto oscuro consistente dentro de la sección */
+  --bs-heading-color: #0F2F39;
+  --bs-body-color: #0F2F39;
+  color: var(--bs-body-color) !important;
+}
+
+body .section-services h1,
+body .section-services h2,
+body .section-services h3,
+body .section-services p,
+body .section-services li {
+  color: var(--bs-body-color) !important;
+}
+
+/* Cards dentro de sección clara: papel blanco y borde sutil */
+body .section-services .card {
+  background: #FFFFFF !important;
+  color: #0F2F39 !important;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+
+/* 10) Parallax por capa ::before (estable y suave) */
+.has-parallax { position: relative; overflow: hidden; }
+.has-parallax > * { position: relative; z-index: 1; }
+.has-parallax::before{
+  content: "";
+  position: absolute; inset: -20%;
+  z-index: 0;
+  will-change: transform;
+  transform: translate3d(0, var(--parallax-offset, 0), 0);
+  transition: transform 0.18s ease-out;
+}
+/* Fondo claro desplazable (Servicios) */
+.section-services.has-parallax::before{
+  background:
+    radial-gradient(900px 520px at 85% -10%, rgba(11,149,177,.10), transparent 60%),
+    radial-gradient(700px 420px at -10% 20%, rgba(8,123,147,.08), transparent 60%),
+    linear-gradient(180deg, var(--paper-top) 0%, var(--paper-mid) 60%, var(--paper-bottom) 100%);
+}
+/* Fondo oscuro desplazable (secciones dark) */
+.section-dark.has-parallax::before{
+  background:
+    radial-gradient(1200px 700px at 75% -10%, rgba(17,227,255,.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(139,211,247,.07), transparent 60%),
+    linear-gradient(180deg, var(--brand-bg), var(--brand-surface));
+}
+@media (prefers-reduced-motion: reduce) {
+  .has-parallax::before { transition: none; }
+}
+
+/* 11) Botones NeoHealth – SIN cambio de color en hover */
+.btn{
+  border: none;
+  border-radius: var(--bs-btn-border-radius);
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 0.6rem 1.4rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  transition: transform 0.15s ease, box-shadow 0.25s ease;
+}
+.btn:hover{
+  transform: scale(1.04);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+.btn:focus, .btn:active, .btn:focus-visible{
+  outline: none !important;
+  box-shadow: 0 0 0 0.15rem rgba(205, 0, 48, 0.25);
+}
+/* Variante para fondos oscuros */
+.btn-light-on-dark{
+  background: var(--brand-surface);
+  color: var(--brand-text);
+}
+/* Variante para fondos claros */
+.btn-dark-on-light{
+  background: var(--paper-mid);
+  color: #0d2a32; /* texto oscuro legible */
+}
+/* Si algún botón es un <a>, sin subrayados ni recolor */
+a.btn, a.btn:hover, a.btn:focus, a.btn:active {
+  text-decoration: none !important;
+  color: inherit !important;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+/* 12) Utilidades */
+.bg-surface{ background: var(--brand-surface) !important; }
+.text-accent{ color: var(--brand-accent) !important; }
+.border-brand{ border-color: var(--brand-border) !important; }
+
+/* 13) Scrollbar (WebKit opcional) */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-thumb {
+  background: #1d2330;
+  border: 2px solid #0d1117;
+  border-radius: 10px;
+}
+*::-webkit-scrollbar-track { background: #0b0f15; }
+
+/* === CONTACTO — fondo más oscuro y altura reducida === */
+#contact.section-services {
+  background: #0A5C70 !important; /* teal oscuro liso */
+  padding-block: clamp(2rem, 4vw, 3rem) !important; /* menos alto */
+  color: #ffffff !important; /* texto principal claro */
+}
+
+#contact.section-services h1,
+#contact.section-services h2,
+#contact.section-services h3 {
+  color: #ffffff !important; /* títulos claros */
+}
+
+#contact.section-services .card {
+  background: #ffffff !important; /* cartas blancas */
+  color: #0F2F39 !important; /* texto oscuro dentro de las cartas */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+

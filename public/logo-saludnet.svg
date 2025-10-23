@@ -1,0 +1,26 @@
+<svg width="168" height="36" viewBox="0 0 168 36" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Salud-Net">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#00bcd4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ícono cruz tech -->
+  <g transform="translate(4,4)">
+    <rect x="0" y="6" width="10" height="4" rx="2" fill="url(#g)"/>
+    <rect x="3" y="3" width="4" height="10" rx="2" fill="url(#g)"/>
+    <circle cx="10" cy="8" r="2" fill="#90caf9"/>
+  </g>
+
+  <!-- Texto Salud-Net -->
+  <text x="28" y="24" font-family="Nunito, Arial, sans-serif" font-weight="700" font-size="18" fill="#e6e6e6" letter-spacing=".3">
+    Salud-
+  </text>
+  <text x="85" y="24" font-family="Nunito, Arial, sans-serif" font-weight="700" font-size="18" fill="url(#g)" letter-spacing=".3">
+    Net
+  </text>
+
+  <!-- Subrayado sutil -->
+  <rect x="28" y="27" width="96" height="2" rx="1" fill="url(#g)" opacity=".55"/>
+</svg>
