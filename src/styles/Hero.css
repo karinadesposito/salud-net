@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--brand-text);
+  overflow: clip;
+  isolation: isolate;
+}
+
+/* Parallax */
+.hero.parallax{
+  background-image:
+    radial-gradient(1200px 700px at 75% -10%, rgba(17,227,255,.08), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(139,211,247,.07), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.18), transparent 25%),
+    var(--hero-image);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.hero.parallax::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,0) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* Contenido */
+.hero .container {
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 0;
+  position: relative;
+  z-index: 1;
+
+  /* 👉 centra los hijos (h1, p, botones) como bloque */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Lead centrado horizontalmente */
+.hero .lead {
+  color: var(--brand-text);
+  font-weight: 400;
+  font-size: 1.25rem;
+
+  /* 👉 clave para centrado real como bloque */
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+
+  /* sombras (corrijo rgba) */
+  text-shadow: 0 2px 4px rgba(0,0,0,.6);
+  backdrop-filter: blur(4px);
+}
+
+@media (min-width: 992px) {
+  .hero .lead {
+    font-size: 1.5rem;
+    white-space: nowrap;
+  }
+}
+
+/* Fallback mobile para el parallax */
+@media (max-width: 991.98px){
+  .hero.parallax { background-attachment: scroll; }
+}

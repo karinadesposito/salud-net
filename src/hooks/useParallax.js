@@ -1,37 +1,63 @@
-// src/hooks/useParallax.js
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-/** Parallax suave por capa ::before — 0.12–0.28 recomendado */
-export default function useParallax(selector = ".has-parallax", strength = 0.20) {
+/**
+ * useParallax
+ * Mueve suavemente el elemento target con transform: translateY()
+ * basado en cuánto entra/sale su contenedor del viewport.
+ *
+ * @param {number} speed - 0.2 a 0.35 suele ir bien. Positivo = se mueve en sentido "parallax".
+ * @param {boolean} enabled - Para habilitar/deshabilitar fácilmente (ej: mobile).
+ */
+export default function useParallax(speed = 0.25, enabled = true) {
+  const targetRef = useRef(null);
+
   useEffect(() => {
-    const els = Array.from(document.querySelectorAll(selector));
-    if (!els.length) return;
+    if (!enabled) return;
+    const el = targetRef.current;
+    if (!el) return;
 
-    const vh = () => window.innerHeight || document.documentElement.clientHeight;
-    let rafId = null;
+    // Respeta accesibilidad: si el usuario prefiere menos movimiento, no animamos
+    if (
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+      return;
+    }
 
+    // Usamos el contenedor padre si existe, así el movimiento depende de la sección visible
+    const container = el.parentElement || el;
+
+    let raf = null;
     const update = () => {
-      els.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        const progress = (rect.top + rect.height / 2 - vh() / 2) / vh();
-        const offsetPx = Math.max(-1, Math.min(1, progress)) * (strength * 200);
-        el.style.setProperty("--parallax-offset", `${offsetPx}px`);
-      });
-      rafId = null;
+      const rect = container.getBoundingClientRect();
+      // Sólo actualizamos si el contenedor está en el viewport
+      const isVisible = rect.bottom > 0 && rect.top < window.innerHeight;
+      if (isVisible) {
+        const offset = -rect.top * speed;
+        el.style.transform = `translateY(${offset}px)`;
+      }
+      raf = null;
     };
 
     const onScroll = () => {
-      if (rafId == null) rafId = requestAnimationFrame(update);
+      if (raf) return;
+      raf = requestAnimationFrame(update);
     };
 
+    // Posiciona al cargar
     update();
+
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
 
     return () => {
-      if (rafId) cancelAnimationFrame(rafId);
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
     };
-  }, [selector, strength]);
+  }, [speed, enabled]);
+
+  return targetRef;
 }
+

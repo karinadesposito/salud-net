@@ -5,7 +5,7 @@ export default function Offer() {
   return (
     <section className="section-services has-parallax" id="offer">
       <div className="container">
-        <div className="row align-items-center g-4">
+        <div className="row align-items-center g-7">
           <div className="col-12 col-md-6">
             <h2 className="mb-4">¿Qué ofrecemos?</h2>
             <p className="mb-3">

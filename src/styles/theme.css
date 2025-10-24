@@ -100,7 +100,8 @@ a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline
 
 /* 5) Layout / contenedores */
 .container, .container-fluid { padding-inline: clamp(1rem, 2vw, 2rem); }
-.container { max-width: var(--container-max); }
+.container { 
+  max-width: var(--container-max); }
 
 /* 6) Navbar y Footer (mínimos; los afinamos al final) */
 .navbar{
@@ -145,18 +146,12 @@ a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline
   border-top: 1px solid var(--brand-border);
   color: var(--brand-text);
 }
-.hero{
-  background:
-    radial-gradient(1200px 700px at 75% -10%, rgba(17,227,255,.08), transparent 60%),
-    radial-gradient(900px 500px at -10% 20%, rgba(139,211,247,.07), transparent 60%),
-    linear-gradient(180deg, rgba(0,0,0,.18), transparent 25%),
-    var(--brand-bg);
-  color: var(--brand-text);
-}
+
 
 /* === Sección clara unificada (SERVICIOS, SHOWCASE, QUOTE, CONTACT) — prioridad alta === */
 body .section-services {
-  padding-block: clamp(3rem, 6vw, 6rem);
+  height: auto;
+  padding-block: clamp(1rem, 3vw, 3rem);
   /* Gradiente claro (un poco más luminoso que antes) */
   background: linear-gradient(180deg, #EAF7F9 0%, #F8FCFD 100%) !important;
 
@@ -217,7 +212,7 @@ body .section-services .card {
 .btn{
   border: none;
   border-radius: var(--bs-btn-border-radius);
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.3px;
   padding: 0.6rem 1.4rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
@@ -233,7 +228,7 @@ body .section-services .card {
 }
 /* Variante para fondos oscuros */
 .btn-light-on-dark{
-  background: var(--brand-surface);
+text-shadow: 0 2px 4px rgba(0.8, 0.8, 0.8, 1.5);
   color: var(--brand-text);
 }
 /* Variante para fondos claros */
@@ -278,11 +273,13 @@ a.btn, a.btn:hover, a.btn:focus, a.btn:active {
 }
 
 #contact.section-services .card {
+  
   background: #ffffff !important; /* cartas blancas */
   color: #0F2F39 !important; /* texto oscuro dentro de las cartas */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 1rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
+
 
 
