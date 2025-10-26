@@ -22,10 +22,10 @@ export default function Quote() {
               <li>¿Necesitás migrar datos?</li>
             </ul>
             <div className="d-flex gap-2">
-              <button className="btn btn-light-on-dark" type="button" onClick={sendMail}>
+              <button className="btn btn-dark-on-light" type="button" onClick={sendMail}>
                 Enviar por Email
               </button>
-              <button className="btn btn-light-on-dark" type="button" data-bs-toggle="modal" data-bs-target="#quoteModal">
+              <button className="btn btn-dark-on-light" type="button" data-bs-toggle="modal" data-bs-target="#quoteModal">
                 Completar formulario
               </button>
             </div>

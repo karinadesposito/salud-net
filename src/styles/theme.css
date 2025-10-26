@@ -105,13 +105,18 @@ a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline
 
 /* 6) Navbar y Footer (mínimos; los afinamos al final) */
 .navbar{
-  background: rgba(20, 76, 92, 0.85);
+  background: #12454f;
   backdrop-filter: saturate(120%) blur(8px);
   border-bottom: 1px solid var(--brand-border);
 }
 .navbar .navbar-brand, .navbar .nav-link { color: var(--brand-text); }
 .navbar .nav-link:hover { color: var(--brand-accent); }
-
+.navbar-logo {
+  height: 70px !important;
+  width: auto !important;
+  max-width: none !important;
+  display: block;
+}
 .footer{
   background: #0b1016;
   border-top: 1px solid var(--brand-border);
@@ -280,6 +285,54 @@ a.btn, a.btn:hover, a.btn:focus, a.btn:active {
   border-radius: 1rem;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
+/* Secciones principales (SERVICIOS / WHY / SHOWCASE / QUOTE / CONTACT)
+   Versión compacta global */
+.section-services {
+  /* antes seguro era algo tipo clamp(3rem, 6vw, 6rem); */
+  padding-block: clamp(1.5rem, 3vw, 3rem) !important;
+  min-height: auto !important;
+}
 
+/* Compactar la sección "¿Por qué personalizar?" */
+#why.section-dark.has-parallax {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  min-height: auto !important;
+  background-size: cover;         /* opcional: mantiene el parallax lindo */
+  background-attachment: fixed;   /* si querés seguir con efecto parallax */
+}
+
+/* Achicar todavía más la caja interna para que no se vea tan alta */
+#why .container {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+/* Cards de contacto más compactas y apaisadas */
+.contact-card .card-body {
+  padding: 1rem 1rem !important;
+}
+
+/* Inputs y textarea más bajitos */
+#contact .form-control {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+/* Títulos más chicos dentro de contacto */
+#contact .card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+/* Achicar espacio vertical general de la sección contacto */
+#contact {
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
+
+#contact .ratio-4x3 {
+  max-height: 160px;
+}
 
 

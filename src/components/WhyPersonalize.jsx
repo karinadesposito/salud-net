@@ -1,5 +1,6 @@
 import React from "react";
 import { scrollToId } from "../utils/scroll";
+import Adm from "../assets/adm.png"; // ✅ imagen local
 
 export default function WhyPersonalize() {
   return (
@@ -35,15 +36,21 @@ export default function WhyPersonalize() {
             </div>
           </div>
 
-          <div className="col-12 col-md-6">
-            <div className="card h-100">
-              <img
-                src="https://images.unsplash.com/photo-1581594693700-2271c4d1d8b6?q=80&w=1640&auto=format&fit=crop"
-                alt="Personalización en Salud-Net"
-                className="card-img-top"
-              />
-            </div>
-          </div>
+         <div className="col-12 col-md-6">
+  <div className="card h-100 shadow-sm">
+    <img
+      src={Adm}
+      alt="Personalización en Salud-Net"
+      className="card-img-top"
+      style={{
+        objectFit: "cover",
+        borderRadius: "0.5rem",
+        height: "100%",
+      }}
+    />
+  </div>
+</div>
+
         </div>
       </div>
     </section>

@@ -1,5 +1,6 @@
 import React from "react";
 import { scrollToId } from "../utils/scroll";
+import Prof from "../assets/prof.png"; // ✅ import correcto
 
 export default function Offer() {
   return (
@@ -35,15 +36,21 @@ export default function Offer() {
             </div>
           </div>
 
-          <div className="col-12 col-md-6">
-            <div className="card h-100">
-              <img
-                src="https://images.unsplash.com/photo-1583912267559-4f5f0f1a4d7e?q=80&w=1640&auto=format&fit=crop"
-                alt="Panel de Salud-Net"
-                className="card-img-top"
-              />
-            </div>
-          </div>
+         <div className="col-12 col-md-6">
+  <div className="card h-100 shadow-sm">
+    <img
+      src={Prof}
+      alt="Panel de Salud-Net"
+      className="card-img-top"
+      style={{
+        objectFit: "cover",
+        borderRadius: "0.5rem",
+        height: "100%",
+      }}
+    />
+  </div>
+</div>
+
         </div>
       </div>
     </section>
