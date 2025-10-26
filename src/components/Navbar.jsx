@@ -1,13 +1,14 @@
 // src/components/Navbar.jsx
 import React from "react";
+import Logosaludnet from "../assets/logosaludnet.png";
 
 export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg sticky-top">
       <div className="container">
         <a className="navbar-brand d-flex align-items-center" href="#">
-          <img src="/logo-saludnet.svg" alt="Salud-Net" height="28" className="me-2" />
-          <span className="fw-bold text-accent">Salud-Net</span>
+          <img src={Logosaludnet} alt="Salud-Net" className="navbar-logo me-2" />
+        
         </a>
         <button
           className="navbar-toggler border-0"
