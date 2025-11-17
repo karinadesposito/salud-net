@@ -1,6 +1,6 @@
 import React from "react";
 import { scrollToId } from "../utils/scroll";
-import demoVideo from "../assets/Salud-Net-video.mp4";
+import demoVideo from "../assets/demoJS.mp4";
 
 export default function Showcase() {
   return (
@@ -22,9 +22,9 @@ export default function Showcase() {
             muted
             loop
             style={{
-              width: "100%",
-              height: "100%",
-              borderRadius: "1rem",
+              width: "120",
+              height: "120%",
+              borderRadius: ".5rem",
               border: "1px solid var(--brand-border)",
               objectFit: "cover",
               boxShadow: "0 0 20px rgba(0,0,0,0.2)",
