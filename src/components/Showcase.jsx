@@ -1,6 +1,6 @@
 import React from "react";
 import { scrollToId } from "../utils/scroll";
-import demoVideo from "../assets/demoJS.mp4";
+import demoVideo from "../assets/demoJs.mp4";
 
 export default function Showcase() {
   return (
