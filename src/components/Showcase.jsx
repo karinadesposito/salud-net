@@ -12,7 +12,7 @@ export default function Showcase() {
         <div
           className="mx-auto"
           style={{
-            maxWidth: "960px", // 🔹 límite visual
+            maxWidth: "700px", // 🔹 límite visual
             aspectRatio: "21 / 9", // 🔹 formato más panorámico
           }}
         >
