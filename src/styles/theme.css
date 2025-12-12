@@ -101,6 +101,7 @@ a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline
 /* 5) Layout / contenedores */
 .container, .container-fluid { padding-inline: clamp(1rem, 2vw, 2rem); }
 .container { 
+  margin-top: 5px;
   max-width: var(--container-max); }
 
 /* 6) Navbar y Footer (mínimos; los afinamos al final) */
@@ -146,24 +147,27 @@ a:hover, a:focus { color: var(--bs-link-hover-color); text-decoration: underline
 
 /* 8) Secciones oscuras y hero */
 .section-dark{
+
+  
   padding-block: clamp(3rem, 6vw, 6rem);
   background: linear-gradient(180deg, var(--brand-bg), var(--brand-surface));
   border-top: 1px solid var(--brand-border);
   color: var(--brand-text);
+   letter-spacing: 0.03em;  
 }
 
 
 /* === Sección clara unificada (SERVICIOS, SHOWCASE, QUOTE, CONTACT) — prioridad alta === */
 body .section-services {
-  height: auto;
-  padding-block: clamp(1rem, 3vw, 3rem);
-  /* Gradiente claro (un poco más luminoso que antes) */
+
+ padding-block: clamp(3rem, 6vw, 6rem);
   background: linear-gradient(180deg, #EAF7F9 0%, #F8FCFD 100%) !important;
 
   /* Texto oscuro consistente dentro de la sección */
   --bs-heading-color: #0F2F39;
   --bs-body-color: #0F2F39;
   color: var(--bs-body-color) !important;
+     letter-spacing: 0.03em;  
 }
 
 body .section-services h1,
@@ -269,6 +273,7 @@ a.btn, a.btn:hover, a.btn:focus, a.btn:active {
   background: #0A5C70 !important; /* teal oscuro liso */
   padding-block: clamp(2rem, 4vw, 3rem) !important; /* menos alto */
   color: #ffffff !important; /* texto principal claro */
+
 }
 
 #contact.section-services h1,
@@ -286,27 +291,17 @@ a.btn, a.btn:hover, a.btn:focus, a.btn:active {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 /* Secciones principales (SERVICIOS / WHY / SHOWCASE / QUOTE / CONTACT)
-   Versión compacta global */
-.section-services {
-  /* antes seguro era algo tipo clamp(3rem, 6vw, 6rem); */
-  padding-block: clamp(1.5rem, 3vw, 3rem) !important;
-  min-height: auto !important;
-}
+KC
 
-/* Compactar la sección "¿Por qué personalizar?" */
+/* 
 #why.section-dark.has-parallax {
   padding-top: 1.5rem !important;
   padding-bottom: 1.5rem !important;
   min-height: auto !important;
   background-size: cover;         /* opcional: mantiene el parallax lindo */
-  background-attachment: fixed;   /* si querés seguir con efecto parallax */
-}
+  /* background-attachment: fixed;   si querés seguir con efecto parallax
+} */ */
 
-/* Achicar todavía más la caja interna para que no se vea tan alta */
-#why .container {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-}
 /* Cards de contacto más compactas y apaisadas */
 .contact-card .card-body {
   padding: 1rem 1rem !important;

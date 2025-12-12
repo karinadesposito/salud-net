@@ -8,8 +8,8 @@ export default function WhyPersonalize() {
       <div className="container">
         <div className="row align-items-center flex-md-row-reverse g-4">
           <div className="col-12 col-md-6">
-            <h2 className="mb-3">¿Por qué personalizar?</h2>
-            <p className="mb-3">
+            <h2 className="mb-4">¿Por qué personalizar?</h2>
+            <p className="mb-">
               Tu identidad visual y tu modo de atención importan. Adaptamos la plataforma a tus flujos y estilo.
             </p>
             <ul className="mb-4">
